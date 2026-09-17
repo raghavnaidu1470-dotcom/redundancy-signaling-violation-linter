@@ -33,6 +33,11 @@ def download_url_to_temp(url: str, output_dir: str | Path) -> Path:
         "format": "best[ext=mp4]/best",
         "noplaylist": True,
         "quiet": True,
+        "extractor_args": {
+            "youtube": {
+                "player_client": ["android", "ios"]
+            }
+        },
     }
 
     with yt_dlp.YoutubeDL(options) as downloader:

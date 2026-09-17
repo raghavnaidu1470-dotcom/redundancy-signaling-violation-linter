@@ -53,6 +53,11 @@ def download_videos(urls: list[str], output_dir: str | Path = DEFAULT_OUTPUT_DIR
         "outtmpl": output_template(destination),
         "format": "best[ext=mp4]/best",
         "noplaylist": True,
+        "extractor_args": {
+            "youtube": {
+                "player_client": ["android", "ios"]
+            }
+        },
     }
     with yt_dlp.YoutubeDL(options) as downloader:
         for url in urls:
