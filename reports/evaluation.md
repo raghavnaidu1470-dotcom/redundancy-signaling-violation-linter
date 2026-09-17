@@ -42,3 +42,16 @@ Lecture 7 produced 21 embedding candidates at 0.20, but has no ground-truth labe
 ## Limitation
 
 OCR quality is the limiting factor in held-out Lectures 5–7. Lecture 5 repeatedly produced corrupted slide text, Lecture 6 produced blank on-screen text, and Lecture 7 produced one repeated, heavily corrupted OCR string. These outputs cause false positives or prevent meaningful redundancy scoring; held-out metrics therefore measure the current end-to-end OCR-plus-detector pipeline, not semantic similarity alone.
+
+## Held-Out Evaluation (Updated)
+
+Following the ground-truth labeling of Lecture 7 (121 intervals following the labeling guide, all labeled non-redundant due to corrupted blackboard OCR), held-out evaluation was recomputed across the complete held-out set (Lectures 5, 6, and 7) at embedding threshold 0.20:
+
+| Lecture | Predictions | GT Positives | TP | FP | FN | Precision | Recall | F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 5 | 3 | 0 | 0 | 3 | 0 | 0.0000 | 0.0000 | 0.0000 |
+| 6 | 0 | 0 | 0 | 0 | 0 | 0.0000 | 0.0000 | 0.0000 |
+| 7 | 21 | 0 | 0 | 21 | 0 | 0.0000 | 0.0000 | 0.0000 |
+| **Combined (5–7)** | **24** | **0** | **0** | **24** | **0** | **0.0000** | **0.0000** | **0.0000** |
+
+All 21 candidate predictions generated for Lecture 7 are false positives resulting from the detector matching spoken narration against the single corrupted OCR string repeatedly present across all blackboard windows. Because there are no true redundant instances in Lectures 5–7, recall and F1 remain 0.0000.

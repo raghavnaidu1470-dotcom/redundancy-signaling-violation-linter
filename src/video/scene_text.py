@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 
 def _validate_time_range(start: float | None, duration: float | None) -> None:
@@ -26,6 +29,50 @@ def limit_scene_intervals(
         for scene_start, scene_end in scenes
         if scene_end > range_start and scene_start < range_end
     ]
+
+
+def detect_scenes_fixed_cadence(
+    video_path: str | Path,
+    interval_seconds: float = 10.0,
+    *,
+    start: float | None = None,
+    duration: float | None = None,
+) -> list[tuple[float, float]]:
+    """Return evenly spaced (start_time, end_time) windows across the requested video duration."""
+    if interval_seconds <= 0:
+        raise ValueError("interval_seconds must be positive.")
+    _validate_time_range(start, duration)
+
+    source = Path(video_path)
+    if not source.is_file():
+        raise FileNotFoundError(f"Video file not found: {source}")
+
+    try:
+        import cv2
+    except ImportError as error:
+        raise RuntimeError("OpenCV is required. Install requirements.txt.") from error
+
+    range_start = start or 0.0
+    if duration is not None:
+        range_end = range_start + duration
+    else:
+        capture = cv2.VideoCapture(str(source))
+        if not capture.isOpened():
+            raise RuntimeError(f"Could not open video: {source}")
+        fps = capture.get(cv2.CAP_PROP_FPS) or 30.0
+        frame_count = capture.get(cv2.CAP_PROP_FRAME_COUNT) or 0
+        total_duration = frame_count / fps if fps > 0 else 0.0
+        capture.release()
+        range_end = total_duration
+
+    windows = []
+    current_start = range_start
+    while current_start < range_end:
+        current_end = min(current_start + interval_seconds, range_end)
+        windows.append((current_start, current_end))
+        current_start = current_end
+
+    return windows
 
 
 def detect_scenes(video_path: str | Path, *, threshold: float = 27.0) -> list[tuple[float, float]]:
@@ -105,14 +152,40 @@ def extract_slide_text(
     threshold: float = 27.0,
     start: float | None = None,
     duration: float | None = None,
+    fallback_cadence: float = 10.0,
 ) -> list[dict[str, Any]]:
-    """OCR one representative frame per detected scene."""
+    """OCR one representative frame per detected scene, falling back to fixed cadence for low-cut videos."""
     try:
         import cv2
     except ImportError as error:
         raise RuntimeError("OpenCV is required. Install requirements.txt.") from error
 
-    scenes = limit_scene_intervals(detect_scenes(video_path, threshold=threshold), start, duration)
+    raw_scenes = detect_scenes(video_path, threshold=threshold)
+    scenes = limit_scene_intervals(raw_scenes, start, duration)
+
+    if duration is not None:
+        effective_duration = duration
+    else:
+        capture_temp = cv2.VideoCapture(str(video_path))
+        fps = capture_temp.get(cv2.CAP_PROP_FPS) or 30.0
+        frame_count = capture_temp.get(cv2.CAP_PROP_FRAME_COUNT) or 0
+        capture_temp.release()
+        total_sec = frame_count / fps if fps > 0 else 0.0
+        effective_duration = total_sec - (start or 0.0)
+
+    if effective_duration > 60.0 and len(scenes) <= 2:
+        logger.warning(
+            "Scene detection produced only %d scene(s) for a %.1fs video clip (%s). "
+            "Falling back to fixed-cadence frame sampling (interval=%.1fs).",
+            len(scenes),
+            effective_duration,
+            video_path,
+            fallback_cadence,
+        )
+        scenes = detect_scenes_fixed_cadence(
+            video_path, interval_seconds=fallback_cadence, start=start, duration=duration
+        )
+
     capture = cv2.VideoCapture(str(video_path))
     if not capture.isOpened():
         raise RuntimeError(f"Could not open video: {video_path}")

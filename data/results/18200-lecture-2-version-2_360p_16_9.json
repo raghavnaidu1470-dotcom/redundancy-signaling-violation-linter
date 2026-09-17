@@ -1,0 +1,19 @@
+{
+  "video": "18200-lecture-2-version-2_360p_16_9",
+  "violations": [
+    {
+      "start_time": 29.766666666666666,
+      "end_time": 34.766666666666666,
+      "score": 0.24964171776962785,
+      "spoken_text": "So just a quick recap of where we left off last time.",
+      "onscreen_text": "Recal\\\nOSamete s"
+    },
+    {
+      "start_time": 226.23333333333332,
+      "end_time": 231.23333333333332,
+      "score": 0.2513712112236324,
+      "spoken_text": "at least one of these",
+      "onscreen_text": "bveawds VES\n\nOG ONTOS Per) 28)\n\nSwe _ yy & 9. CONAN QveN Nunlet\n\n=| ~ — Comburg even TUT, =\noe alte 4S\n\nW y"
+    }
+  ]
+}

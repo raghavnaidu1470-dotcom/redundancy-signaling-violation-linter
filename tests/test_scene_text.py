@@ -9,6 +9,7 @@ import numpy as np
 
 from src.video.scene_text import (
     _preprocess_frame,
+    detect_scenes_fixed_cadence,
     limit_scene_intervals,
     save_ocr_results,
 )
@@ -28,6 +29,15 @@ class SceneTextJsonTest(unittest.TestCase):
 
     def test_limits_scenes_to_requested_range(self) -> None:
         self.assertEqual(limit_scene_intervals([(0.0, 4.0), (4.0, 9.0)], 2.0, 4.0), [(2.0, 4.0), (4.0, 6.0)])
+
+    def test_detect_scenes_fixed_cadence_generates_uniform_windows(self) -> None:
+        with tempfile.NamedTemporaryFile(suffix=".mp4") as temp_file:
+            path = Path(temp_file.name)
+            windows = detect_scenes_fixed_cadence(path, interval_seconds=10.0, start=0.0, duration=35.0)
+            self.assertEqual(
+                windows,
+                [(0.0, 10.0), (10.0, 20.0), (20.0, 30.0), (30.0, 35.0)],
+            )
 
     def test_saved_results_have_scene_text_fields(self) -> None:
         results = [{"start_time": 0.0, "end_time": 5.0, "onscreen_text": "Slide title"}]

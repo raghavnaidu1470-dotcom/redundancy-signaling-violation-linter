@@ -1,0 +1,82 @@
+{
+  "video": "01 [01]",
+  "violations": [
+    {
+      "start_time": 6.539866666666667,
+      "end_time": 11.539866666666667,
+      "score": 0.20572558051925155,
+      "spoken_text": "Hi, this is the first lecture in MIT's",
+      "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |"
+    },
+    {
+      "start_time": 11.539866666666667,
+      "end_time": 16.53986666666667,
+      "score": 0.2339881167426466,
+      "spoken_text": "course, 1806, linear algebra, and I'm",
+      "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |"
+    },
+    {
+      "start_time": 16.53986666666667,
+      "end_time": 21.53986666666667,
+      "score": 0.2815181403728696,
+      "spoken_text": "Gilbert Strang. The text for the course is this",
+      "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |"
+    },
+    {
+      "start_time": 21.53986666666667,
+      "end_time": 26.53986666666667,
+      "score": 0.2284508185243242,
+      "spoken_text": "book, Introduction to Linear Algebra, and",
+      "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |"
+    },
+    {
+      "start_time": 41.53986666666667,
+      "end_time": 46.53986666666667,
+      "score": 0.3440570936562947,
+      "spoken_text": ".06, and this is the first lecture,",
+      "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |"
+    },
+    {
+      "start_time": 46.53986666666667,
+      "end_time": 47.5475,
+      "score": 0.30645665126302196,
+      "spoken_text": "lecture one.",
+      "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |"
+    },
+    {
+      "start_time": 57.5475,
+      "end_time": 62.5475,
+      "score": 0.23039141972506788,
+      "spoken_text": "so what's in the first lecture? This",
+      "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |"
+    },
+    {
+      "start_time": 93.30656666666667,
+      "end_time": 98.30656666666667,
+      "score": 0.3817477841018994,
+      "spoken_text": "what I call the row picture. That's the picture",
+      "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe"
+    },
+    {
+      "start_time": 192.65413333333333,
+      "end_time": 197.65413333333333,
+      "score": 0.23815127265943056,
+      "spoken_text": "and two in the second row, that's the matrix. And the",
+      "onscreen_text": "|;\n\nmoged\n\nEat"
+    },
+    {
+      "start_time": 243.66176666666667,
+      "end_time": 248.66176666666667,
+      "score": 0.217117319255369,
+      "spoken_text": "is also a vector that I'll always call b. So linear equations",
+      "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY"
+    },
+    {
+      "start_time": 297.9827,
+      "end_time": 300.0,
+      "score": 0.2319387573879387,
+      "spoken_text": "line, on this horizontal line.",
+      "onscreen_text": "neat Aa clu o) wKR- = 0 Roo picture,\nLED Ng, -x +2 =3\nchon hy lade\n\nmite\n\nTALS |"
+    }
+  ]
+}
