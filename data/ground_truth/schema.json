@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Redundancy interval annotations",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["start_time", "end_time", "is_redundant"],
+    "additionalProperties": false,
+    "properties": {
+      "start_time": {
+        "type": "number",
+        "minimum": 0
+      },
+      "end_time": {
+        "type": "number",
+        "minimum": 0
+      },
+      "is_redundant": {
+        "type": "boolean"
+      }
+    }
+  }
+}

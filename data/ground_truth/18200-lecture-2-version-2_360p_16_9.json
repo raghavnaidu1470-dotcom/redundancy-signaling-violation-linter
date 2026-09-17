@@ -1,0 +1,317 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 5.0,
+    "is_redundant": false
+  },
+  {
+    "start_time": 5.0,
+    "end_time": 10.0,
+    "is_redundant": false
+  },
+  {
+    "start_time": 10.0,
+    "end_time": 11.0,
+    "is_redundant": false
+  },
+  {
+    "start_time": 11.0,
+    "end_time": 16.0,
+    "is_redundant": false
+  },
+  {
+    "start_time": 16.0,
+    "end_time": 21.0,
+    "is_redundant": false
+  },
+  {
+    "start_time": 21.0,
+    "end_time": 26.0,
+    "is_redundant": false
+  },
+  {
+    "start_time": 26.0,
+    "end_time": 29.766666666666666,
+    "is_redundant": false
+  },
+  {
+    "start_time": 29.766666666666666,
+    "end_time": 34.766666666666666,
+    "is_redundant": true
+  },
+  {
+    "start_time": 34.766666666666666,
+    "end_time": 39.766666666666666,
+    "is_redundant": false
+  },
+  {
+    "start_time": 39.766666666666666,
+    "end_time": 44.766666666666666,
+    "is_redundant": true
+  },
+  {
+    "start_time": 44.766666666666666,
+    "end_time": 49.766666666666666,
+    "is_redundant": true
+  },
+  {
+    "start_time": 49.766666666666666,
+    "end_time": 54.766666666666666,
+    "is_redundant": false
+  },
+  {
+    "start_time": 54.766666666666666,
+    "end_time": 58.666666666666664,
+    "is_redundant": false
+  },
+  {
+    "start_time": 58.666666666666664,
+    "end_time": 63.666666666666664,
+    "is_redundant": false
+  },
+  {
+    "start_time": 63.666666666666664,
+    "end_time": 68.66666666666666,
+    "is_redundant": false
+  },
+  {
+    "start_time": 68.66666666666666,
+    "end_time": 73.66666666666666,
+    "is_redundant": false
+  },
+  {
+    "start_time": 73.66666666666666,
+    "end_time": 75.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 75.13333333333334,
+    "end_time": 80.13333333333334,
+    "is_redundant": true
+  },
+  {
+    "start_time": 80.13333333333334,
+    "end_time": 85.13333333333334,
+    "is_redundant": true
+  },
+  {
+    "start_time": 85.13333333333334,
+    "end_time": 90.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 90.13333333333334,
+    "end_time": 95.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 95.13333333333334,
+    "end_time": 100.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 100.13333333333334,
+    "end_time": 105.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 105.13333333333334,
+    "end_time": 110.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 110.13333333333334,
+    "end_time": 115.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 115.13333333333334,
+    "end_time": 120.13333333333334,
+    "is_redundant": true
+  },
+  {
+    "start_time": 120.13333333333334,
+    "end_time": 125.13333333333334,
+    "is_redundant": false
+  },
+  {
+    "start_time": 125.13333333333334,
+    "end_time": 130.13333333333333,
+    "is_redundant": false
+  },
+  {
+    "start_time": 130.13333333333333,
+    "end_time": 135.13333333333333,
+    "is_redundant": false
+  },
+  {
+    "start_time": 135.13333333333333,
+    "end_time": 140.13333333333333,
+    "is_redundant": false
+  },
+  {
+    "start_time": 140.13333333333333,
+    "end_time": 141.7,
+    "is_redundant": false
+  },
+  {
+    "start_time": 141.7,
+    "end_time": 146.7,
+    "is_redundant": true
+  },
+  {
+    "start_time": 146.7,
+    "end_time": 151.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 151.23333333333332,
+    "end_time": 156.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 156.23333333333332,
+    "end_time": 161.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 161.23333333333332,
+    "end_time": 166.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 166.23333333333332,
+    "end_time": 171.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 171.23333333333332,
+    "end_time": 176.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 176.23333333333332,
+    "end_time": 181.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 181.23333333333332,
+    "end_time": 186.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 186.23333333333332,
+    "end_time": 191.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 191.23333333333332,
+    "end_time": 196.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 196.23333333333332,
+    "end_time": 201.23333333333332,
+    "is_redundant": true
+  },
+  {
+    "start_time": 201.23333333333332,
+    "end_time": 206.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 206.23333333333332,
+    "end_time": 211.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 211.23333333333332,
+    "end_time": 216.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 216.23333333333332,
+    "end_time": 221.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 221.23333333333332,
+    "end_time": 226.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 226.23333333333332,
+    "end_time": 231.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 231.23333333333332,
+    "end_time": 236.23333333333332,
+    "is_redundant": true
+  },
+  {
+    "start_time": 236.23333333333332,
+    "end_time": 241.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 241.23333333333332,
+    "end_time": 246.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 246.23333333333332,
+    "end_time": 251.23333333333332,
+    "is_redundant": false
+  },
+  {
+    "start_time": 251.23333333333332,
+    "end_time": 256.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 256.23333333333335,
+    "end_time": 261.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 261.23333333333335,
+    "end_time": 266.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 266.23333333333335,
+    "end_time": 271.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 271.23333333333335,
+    "end_time": 276.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 276.23333333333335,
+    "end_time": 281.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 281.23333333333335,
+    "end_time": 286.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 286.23333333333335,
+    "end_time": 291.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 291.23333333333335,
+    "end_time": 296.23333333333335,
+    "is_redundant": false
+  },
+  {
+    "start_time": 296.23333333333335,
+    "end_time": 300.0,
+    "is_redundant": false
+  }
+]
