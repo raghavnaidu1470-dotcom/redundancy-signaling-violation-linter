@@ -1,0 +1,7 @@
+# Initial pipeline stages: video frame access and local speech-to-text.
+opencv-python>=4.10,<5
+faster-whisper>=1.1,<2
+scenedetect>=0.6,<1
+pytesseract>=0.3,<1
+sentence-transformers>=3,<4
+yt-dlp>=2025.1.15

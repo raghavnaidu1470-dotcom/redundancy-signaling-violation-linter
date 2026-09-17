@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# Keep directory placeholders, not generated pipeline artifacts.
+data/raw_videos/*
+!data/raw_videos/.gitkeep
+data/audio/*
+!data/audio/.gitkeep
+data/transcripts/*
+!data/transcripts/.gitkeep
+data/frames/*
+!data/frames/.gitkeep
+data/ocr/*
+!data/ocr/.gitkeep
+data/aligned/*
+!data/aligned/.gitkeep
+data/videos/*
+!data/videos/.gitkeep
+data/ground_truth/*
+!data/ground_truth/.gitkeep
+results/*
+!results/.gitkeep

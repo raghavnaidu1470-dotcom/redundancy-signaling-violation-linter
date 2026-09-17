@@ -1,0 +1,464 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 0.5338666666666667,
+    "spoken_text": "",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 0.5338666666666667,
+    "end_time": 5.5338666666666665,
+    "spoken_text": "",
+    "onscreen_text": "ID EE ED EE EE EI IDOE IE EEE I\n\ny Linear Algebra\nLecture #1",
+    "is_redundant": false
+  },
+  {
+    "start_time": 5.5338666666666665,
+    "end_time": 6.539866666666667,
+    "spoken_text": "",
+    "onscreen_text": "ID EE ED EE EE EI IDOE IE EEE I\n\ny Linear Algebra\nLecture #1",
+    "is_redundant": false
+  },
+  {
+    "start_time": 6.539866666666667,
+    "end_time": 11.539866666666667,
+    "spoken_text": "Hi, this is the first lecture in MIT's",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 11.539866666666667,
+    "end_time": 16.53986666666667,
+    "spoken_text": "course, 1806, linear algebra, and I'm",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 16.53986666666667,
+    "end_time": 21.53986666666667,
+    "spoken_text": "Gilbert Strang. The text for the course is this",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 21.53986666666667,
+    "end_time": 26.53986666666667,
+    "spoken_text": "book, Introduction to Linear Algebra, and",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 26.53986666666667,
+    "end_time": 31.53986666666667,
+    "spoken_text": "the course webpage, which has got a lot of exercises",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 31.53986666666667,
+    "end_time": 36.53986666666667,
+    "spoken_text": "from the past, MATLAB codes,",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 36.53986666666667,
+    "end_time": 41.53986666666667,
+    "spoken_text": "the syllabus for the course, is web .mit .edu slash 18",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 41.53986666666667,
+    "end_time": 46.53986666666667,
+    "spoken_text": ".06, and this is the first lecture,",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 46.53986666666667,
+    "end_time": 47.5475,
+    "spoken_text": "lecture one.",
+    "onscreen_text": "IR.06 Linear Machin\n(albert Sean\n\nTexts Introduction te Re eb |\n\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 47.5475,
+    "end_time": 52.5475,
+    "spoken_text": "So, and later we'll say, which will",
+    "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 52.5475,
+    "end_time": 57.5475,
+    "spoken_text": "give the web address for viewing these videotapes. Okay,",
+    "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 57.5475,
+    "end_time": 62.5475,
+    "spoken_text": "so what's in the first lecture? This",
+    "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 62.5475,
+    "end_time": 67.5475,
+    "spoken_text": "is my plan, the fundamental problem",
+    "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 67.5475,
+    "end_time": 72.5475,
+    "spoken_text": "of linear algebra, which is to solve a system of linear equations.",
+    "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 72.5475,
+    "end_time": 73.30656666666667,
+    "spoken_text": "",
+    "onscreen_text": "IS.06 Lwvear Machen\n\nLext or \"Vroluchonty Likes AN\n\nhtt t// web. metich 8,06\nLecture |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 73.30656666666667,
+    "end_time": 78.30656666666667,
+    "spoken_text": "So let's start with the case when we have some number of equations,",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": false
+  },
+  {
+    "start_time": 78.30656666666667,
+    "end_time": 83.30656666666667,
+    "spoken_text": "say n equations, and n unknowns. So an equal number of equations and unknowns,",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": false
+  },
+  {
+    "start_time": 83.30656666666667,
+    "end_time": 88.30656666666667,
+    "spoken_text": "that's the normal, nice case. And what I want to do is,",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": false
+  },
+  {
+    "start_time": 88.30656666666667,
+    "end_time": 93.30656666666667,
+    "spoken_text": "with examples of course, to describe first",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": false
+  },
+  {
+    "start_time": 93.30656666666667,
+    "end_time": 98.30656666666667,
+    "spoken_text": "what I call the row picture. That's the picture",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": true
+  },
+  {
+    "start_time": 98.30656666666667,
+    "end_time": 103.30656666666667,
+    "spoken_text": "of one equation at a time. It's the picture you've seen before in two",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": true
+  },
+  {
+    "start_time": 103.30656666666667,
+    "end_time": 108.30656666666667,
+    "spoken_text": "-by -two equations where lines meet. So in a minute you'll see lines meeting.",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": false
+  },
+  {
+    "start_time": 108.30656666666667,
+    "end_time": 113.113,
+    "spoken_text": "The second picture, I'll put a star beside that, because that's",
+    "onscreen_text": "hae\nnN Lnea Spuatvows 1 Urlt-\nRow Picture\nMatny fhe",
+    "is_redundant": false
+  },
+  {
+    "start_time": 113.113,
+    "end_time": 118.113,
+    "spoken_text": "such an important one. And maybe new to you, is the picture",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 118.113,
+    "end_time": 123.113,
+    "spoken_text": "a column at a time. And those are the rows and",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 123.113,
+    "end_time": 128.113,
+    "spoken_text": "columns of a matrix. So the third, the algebra way to look at the problem,",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 128.113,
+    "end_time": 133.113,
+    "spoken_text": "is the matrix form in using a matrix that I'll call A.",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 133.113,
+    "end_time": 138.113,
+    "spoken_text": "Okay, so can I do an example? The whole semester",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 138.113,
+    "end_time": 143.113,
+    "spoken_text": "will be examples, and then see what's",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 143.113,
+    "end_time": 148.113,
+    "spoken_text": "going on with the example. So take an example. Two equations,",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 148.113,
+    "end_time": 153.113,
+    "spoken_text": "two unknowns. So let me take 2x",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 153.113,
+    "end_time": 158.113,
+    "spoken_text": "minus y equals zero, let's say,",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 158.113,
+    "end_time": 163.113,
+    "spoken_text": "and minus x plus, say, 2y equals",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 163.113,
+    "end_time": 166.19936666666666,
+    "spoken_text": "3. Okay.",
+    "onscreen_text": "",
+    "is_redundant": false
+  },
+  {
+    "start_time": 166.19936666666666,
+    "end_time": 171.19936666666666,
+    "spoken_text": "Let me, I can even say right away, what's the",
+    "onscreen_text": "ear Algebrr Ve-4 20\n\n2du/18 06",
+    "is_redundant": false 
+  },
+  {
+    "start_time": 171.19936666666666,
+    "end_time": 176.19936666666666,
+    "spoken_text": "matrix that is, what's the coefficient matrix?",
+    "onscreen_text": "ear Algebrr Ve-4 20\n\n2du/18 06",
+    "is_redundant": false
+  },
+  {
+    "start_time": 176.19936666666666,
+    "end_time": 181.19936666666666,
+    "spoken_text": "The matrix that involves these numbers. A matrix is",
+    "onscreen_text": "ear Algebrr Ve-4 20\n\n2du/18 06",
+    "is_redundant": false
+  },
+  {
+    "start_time": 181.19936666666666,
+    "end_time": 186.19936666666666,
+    "spoken_text": "just a rectangular array of numbers. Here it's two rows",
+    "onscreen_text": "ear Algebrr Ve-4 20\n\n2du/18 06",
+    "is_redundant": false
+  },
+  {
+    "start_time": 186.19936666666666,
+    "end_time": 187.65413333333333,
+    "spoken_text": "and two columns.",
+    "onscreen_text": "ear Algebrr Ve-4 20\n\n2du/18 06",
+    "is_redundant": false
+  },
+  {
+    "start_time": 187.65413333333333,
+    "end_time": 192.65413333333333,
+    "spoken_text": "So two and minus one in the first row, minus one",
+    "onscreen_text": "|;\n\nmoged\n\nEat",
+    "is_redundant": false
+  },
+  {
+    "start_time": 192.65413333333333,
+    "end_time": 197.65413333333333,
+    "spoken_text": "and two in the second row, that's the matrix. And the",
+    "onscreen_text": "|;\n\nmoged\n\nEat",
+    "is_redundant": false
+  },
+  {
+    "start_time": 197.65413333333333,
+    "end_time": 202.65413333333333,
+    "spoken_text": "right hand, the unknown, well we've got two unknowns.",
+    "onscreen_text": "|;\n\nmoged\n\nEat",
+    "is_redundant": false
+  },
+  {
+    "start_time": 202.65413333333333,
+    "end_time": 207.65413333333333,
+    "spoken_text": "So we've got a vector, x with two components, x and y, and",
+    "onscreen_text": "|;\n\nmoged\n\nEat",
+    "is_redundant": false
+  },
+  {
+    "start_time": 207.65413333333333,
+    "end_time": 212.65413333333333,
+    "spoken_text": "we've got two right hand sides that go into a vector 0, 3.",
+    "onscreen_text": "|;\n\nmoged\n\nEat",
+    "is_redundant": false
+  },
+  {
+    "start_time": 212.65413333333333,
+    "end_time": 215.1149,
+    "spoken_text": "I couldn't resist writing the",
+    "onscreen_text": "|;\n\nmoged\n\nEat",
+    "is_redundant": false
+  },
+  {
+    "start_time": 215.1149,
+    "end_time": 220.1149,
+    "spoken_text": "matrix form right even before the pictures.",
+    "onscreen_text": "-wear Ak brn _ a)\ntod | Aang F\n\noduchow-te Lda Anche $1\nNeb. mtedu/|\n\nAue |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 220.1149,
+    "end_time": 225.1149,
+    "spoken_text": "So I always will think of this as the matrix A,",
+    "onscreen_text": "-wear Ak brn _ a)\ntod | Aang F\n\noduchow-te Lda Anche $1\nNeb. mtedu/|\n\nAue |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 225.1149,
+    "end_time": 228.66176666666667,
+    "spoken_text": "the matrix of coefficients. Then there's",
+    "onscreen_text": "-wear Ak brn _ a)\ntod | Aang F\n\noduchow-te Lda Anche $1\nNeb. mtedu/|\n\nAue |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 228.66176666666667,
+    "end_time": 233.66176666666667,
+    "spoken_text": "a vector of unknowns. Here we've only got two unknowns. Later we'll have any number of unknowns.",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 233.66176666666667,
+    "end_time": 238.66176666666667,
+    "spoken_text": "And that vector of unknowns, well I'll often, I'll make that x extra,",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 238.66176666666667,
+    "end_time": 243.66176666666667,
+    "spoken_text": "extra bold. And the right hand side",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 243.66176666666667,
+    "end_time": 248.66176666666667,
+    "spoken_text": "is also a vector that I'll always call b. So linear equations",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 248.66176666666667,
+    "end_time": 253.66176666666667,
+    "spoken_text": "are A x equal b, and the idea now is",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 253.66176666666667,
+    "end_time": 258.66176666666667,
+    "spoken_text": "to solve this particular example and then step back to see",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 258.66176666666667,
+    "end_time": 263.66176666666667,
+    "spoken_text": "the bigger picture. Okay, what's the picture for this example? The row picture.",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 263.66176666666667,
+    "end_time": 268.66176666666667,
+    "spoken_text": "Okay, so here comes the row picture.",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 268.66176666666667,
+    "end_time": 273.66176666666667,
+    "spoken_text": "So that means I take one row at a time, and I'm drawing",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 273.66176666666667,
+    "end_time": 278.66176666666667,
+    "spoken_text": "here the x, y plane, and",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 278.66176666666667,
+    "end_time": 282.9827,
+    "spoken_text": "I'm going to put plot all",
+    "onscreen_text": "Linear Aha bra\ncoduchowte Litt Aw Zz\nweb, mie\n\n‘cTure {\nLY",
+    "is_redundant": false
+  },
+  {
+    "start_time": 282.9827,
+    "end_time": 287.9827,
+    "spoken_text": "the points that satisfy that first equation. So",
+    "onscreen_text": "neat Aa clu o) wKR- = 0 Roo picture,\nLED Ng, -x +2 =3\nchon hy lade\n\nmite\n\nTALS |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 287.9827,
+    "end_time": 292.9827,
+    "spoken_text": "I'm looking at all the points that satisfy 2x minus y equals 0. I'm",
+    "onscreen_text": "neat Aa clu o) wKR- = 0 Roo picture,\nLED Ng, -x +2 =3\nchon hy lade\n\nmite\n\nTALS |",
+    "is_redundant": true
+  },
+  {
+    "start_time": 292.9827,
+    "end_time": 297.9827,
+    "spoken_text": "often, it's often good to start with which point on the horizontal",
+    "onscreen_text": "neat Aa clu o) wKR- = 0 Roo picture,\nLED Ng, -x +2 =3\nchon hy lade\n\nmite\n\nTALS |",
+    "is_redundant": false
+  },
+  {
+    "start_time": 297.9827,
+    "end_time": 300.0,
+    "spoken_text": "line, on this horizontal line.",
+    "onscreen_text": "neat Aa clu o) wKR- = 0 Roo picture,\nLED Ng, -x +2 =3\nchon hy lade\n\nmite\n\nTALS |",
+    "is_redundant": false
+  }
+]
