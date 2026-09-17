@@ -486,11 +486,17 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`
         : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
 
+      const durationSec = Math.max(0.5, (v.end_time - v.start_time)).toFixed(1);
+
       card.innerHTML = `
         <div class="violation-card-top">
-          <span class="time-badge">${startTimeStr} - ${endTimeStr}</span>
+          <span class="time-badge" title="Timestamp: ${startTimeStr} to ${endTimeStr} (${durationSec}s)">
+            <svg class="time-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span class="time-range-text">${startTimeStr} <span class="time-arrow">➔</span> ${endTimeStr}</span>
+            <span class="time-dur-tag">${durationSec}s</span>
+          </span>
           <div class="score-badge-wrap">
-            <div class="score-bar-bg">
+            <div class="score-bar-bg" title="Cosine Similarity: ${scorePct}%">
               <div class="score-bar-fill" style="width: ${scorePct}%;"></div>
             </div>
             <span class="score-badge">${scorePct}%</span>
@@ -501,19 +507,19 @@ document.addEventListener("DOMContentLoaded", () => {
           ${titleLabel}
         </div>
         <div class="violation-grid">
-          <div>
+          <div class="column-audio">
             <p class="violation-column-title">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path></svg>
-              Spoken Audio
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path></svg>
+              Spoken Narration
             </p>
-            <p class="violation-text">${escapeHtml(v.spoken_text || "(Silence)")}</p>
+            <div class="violation-text">${formatSpokenText(v.spoken_text)}</div>
           </div>
-          <div>
+          <div class="column-slide">
             <p class="violation-column-title">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-              On-Screen Slide
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              On-Screen Slide / Chalkboard
             </p>
-            <p class="violation-text">${escapeHtml(v.onscreen_text || v.static_onscreen_text || "(No Slide Text Detected)")}</p>
+            <div class="violation-text">${formatSlideText(v.onscreen_text || v.static_onscreen_text)}</div>
           </div>
         </div>
       `;
@@ -683,6 +689,58 @@ document.addEventListener("DOMContentLoaded", () => {
     const div = document.createElement("div");
     div.textContent = text;
     return div.innerHTML;
+  }
+
+  function formatSlideText(text) {
+    if (!text || !text.trim()) {
+      return '<span class="slide-empty-note">[Visual Demonstration / Diagram — No Slide Text Displayed]</span>';
+    }
+
+    // Clean common OCR noise symbols
+    let cleaned = text.replace(/[\~\|\_\\\^\*\<\>\{\}\[\]\=\+\#\$\%\@]+/g, " ");
+    const rawLines = cleaned.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+
+    if (rawLines.length === 0) {
+      return '<span class="slide-empty-note">[Visual Demonstration / Diagram — No Slide Text Displayed]</span>';
+    }
+
+    const cleanLines = [];
+    for (const line of rawLines) {
+      const tokens = line.split(/\s+/).filter(tok => {
+        const cleanTok = tok.replace(/[^a-zA-Z0-9]/g, "");
+        if (cleanTok.length === 1 && !['a', 'i', 'A', 'I'].includes(cleanTok) && !/[0-9]/.test(cleanTok)) {
+          return false;
+        }
+        return cleanTok.length > 0;
+      });
+      if (tokens.length > 0) {
+        cleanLines.push(tokens.join(" "));
+      }
+    }
+
+    if (cleanLines.length === 0) {
+      return '<span class="slide-empty-note">[Handwritten Blackboard — Low Optical Contrast]</span>';
+    }
+
+    // Check if tokens are meaningful words
+    const allWords = cleanLines.join(" ").split(/\s+/).filter(w => w.length >= 2 && /[a-zA-Z]/.test(w));
+    if (allWords.length < 2) {
+      return `<div class="slide-low-conf"><span class="slide-empty-note">[Blackboard Handwriting Fragment]</span><span class="slide-text-preview">${escapeHtml(cleanLines.join(" "))}</span></div>`;
+    }
+
+    return cleanLines.map(line => `
+      <div class="slide-line">
+        <span class="slide-bullet">›</span>
+        <span class="slide-line-content">${escapeHtml(line)}</span>
+      </div>
+    `).join("");
+  }
+
+  function formatSpokenText(text) {
+    if (!text || !text.trim()) {
+      return '<span class="slide-empty-note">(Silence)</span>';
+    }
+    return `<span class="audio-quote">"${escapeHtml(text.trim())}"</span>`;
   }
 
   // Initial load

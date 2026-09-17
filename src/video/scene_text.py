@@ -133,6 +133,9 @@ def _preprocess_frame(frame: Any) -> Any:
     return binary
 
 
+from src.ocr.cleaner import clean_ocr_text
+
+
 def _ocr_frame(frame: Any) -> str:
     """Return cleaned OCR text for an OpenCV BGR frame."""
     try:
@@ -141,7 +144,8 @@ def _ocr_frame(frame: Any) -> str:
         raise RuntimeError("pytesseract is required. Install requirements.txt.") from error
 
     try:
-        return pytesseract.image_to_string(_preprocess_frame(frame)).strip()
+        raw = pytesseract.image_to_string(_preprocess_frame(frame)).strip()
+        return clean_ocr_text(raw)
     except pytesseract.TesseractNotFoundError as error:
         raise RuntimeError("Tesseract is required but was not found on PATH.") from error
 
@@ -173,11 +177,10 @@ def extract_slide_text(
         total_sec = frame_count / fps if fps > 0 else 0.0
         effective_duration = total_sec - (start or 0.0)
 
-    if effective_duration > 60.0 and len(scenes) <= 2:
+    if (effective_duration >= 45.0 and len(scenes) <= 2) or any((end - start) > 25.0 for start, end in scenes):
         logger.warning(
-            "Scene detection produced only %d scene(s) for a %.1fs video clip (%s). "
+            "Scene detection produced long static scene(s) for a %.1fs video clip (%s). "
             "Falling back to fixed-cadence frame sampling (interval=%.1fs).",
-            len(scenes),
             effective_duration,
             video_path,
             fallback_cadence,
