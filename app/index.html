@@ -3,204 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cognitive Load Linter — Redundancy Violation Detector</title>
+  <title>Cognitive Signal Lab — Redundancy & Signaling Linter</title>
+  
+  <!-- Fonts: Space Grotesk + JetBrains Mono + Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-container">
-    <!-- Header -->
-    <header class="navbar">
-      <div class="brand">
-        <div class="logo-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
+  <!-- Ambient Oscilloscope Canvas Background -->
+  <canvas id="bg-canvas" class="ambient-canvas"></canvas>
+  <div class="crt-scanline-overlay"></div>
+
+  <div class="app-shell">
+    <!-- Top System Telemetry Bar -->
+    <header class="lab-navbar">
+      <div class="brand-cluster">
+        <div class="oscilloscope-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12h3l2-7 4 14 3-9 2 5 2-3h4"></path>
           </svg>
+          <span class="pulse-ring"></span>
         </div>
         <div>
-          <h1 class="brand-title">Multimedia Cognitive Linter</h1>
-          <p class="brand-subtitle">Automated Mayer's Redundancy & Signaling Detection</p>
+          <div class="brand-title-wrap">
+            <h1 class="brand-title">COGNITIVE SIGNAL LAB</h1>
+            <span class="version-chip">v2.4 [SYS_ONLINE]</span>
+          </div>
+          <p class="brand-subtext">Multi-Modal Mayer Attention & Information Density Linter</p>
         </div>
       </div>
-      <div class="header-badges">
-        <span class="badge badge-accent">Model: paraphrase-MiniLM-L3-v2</span>
-        <span class="badge badge-subtle">Threshold: 0.20</span>
+
+      <!-- Live Telemetry Status Indicators -->
+      <div class="telemetry-deck">
+        <div class="telemetry-pill">
+          <span class="status-dot dot-cyan"></span>
+          <span class="pill-label">AUDIO CH:</span>
+          <span class="pill-val">WHISPER_OK</span>
+        </div>
+        <div class="telemetry-pill">
+          <span class="status-dot dot-magenta"></span>
+          <span class="pill-label">VISUAL CH:</span>
+          <span class="pill-val">OCR_SYNC</span>
+        </div>
+        <div class="telemetry-pill">
+          <span class="status-dot dot-green"></span>
+          <span class="pill-label">DETECTOR:</span>
+          <span class="pill-val">MiniLM-L3</span>
+        </div>
+        <div class="telemetry-pill highlight">
+          <span class="pill-label">THRESHOLD:</span>
+          <span class="pill-val">0.200 SIM</span>
+        </div>
       </div>
     </header>
 
-    <!-- Source Input Controls -->
-    <section class="control-panel">
-      <div class="tabs" role="tablist">
-        <button class="tab-btn active" id="tab-samples" data-tab="panel-samples">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M4 12h16M4 18h7"></path>
-          </svg>
-          Pre-analyzed Lectures
-        </button>
-        <button class="tab-btn" id="tab-upload" data-tab="panel-upload">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="17 8 12 3 7 8"></polyline>
-            <line x1="12" y1="3" x2="12" y2="15"></line>
-          </svg>
-          Drop Video File
-        </button>
-        <button class="tab-btn" id="tab-url" data-tab="panel-url">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-          </svg>
-          Video URL / Link
-        </button>
-      </div>
-
-      <!-- Panel: Pre-analyzed Samples -->
-      <div class="tab-content active" id="panel-samples">
-        <div class="sample-selector-row">
-          <label for="sample-select" class="input-label">Select Sample Lecture:</label>
-          <select id="sample-select" class="select-dropdown">
-            <option value="" disabled selected>Loading benchmark samples...</option>
-          </select>
-          <button id="btn-load-sample" class="btn btn-primary">Load Analysis</button>
+    <!-- Lab Input Console -->
+    <section class="lab-console">
+      <div class="console-header-strip">
+        <div class="console-title">
+          <span class="prompt-arrow">&gt;&gt;</span> INPUT SOURCE SELECTOR
+        </div>
+        <div class="console-tabs" role="tablist">
+          <button class="console-tab active" id="tab-samples" data-tab="panel-samples">
+            <span class="tab-indicator"></span> BENCHMARK CORPUS
+          </button>
+          <button class="console-tab" id="tab-upload" data-tab="panel-upload">
+            <span class="tab-indicator"></span> VIDEO DROPZONE
+          </button>
+          <button class="console-tab" id="tab-url" data-tab="panel-url">
+            <span class="tab-indicator"></span> WEB STREAM / URL
+          </button>
         </div>
       </div>
 
-      <!-- Panel: Drop File -->
-      <div class="tab-content" id="panel-upload">
-        <div class="dropzone" id="dropzone">
-          <div class="dropzone-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <!-- Tab 1: Benchmark Samples -->
+      <div class="tab-panel active" id="panel-samples">
+        <div class="panel-inner-row">
+          <div class="select-wrapper">
+            <span class="input-prefix">SOURCE //</span>
+            <select id="sample-select" class="cyber-select">
+              <option value="" disabled selected>Enumerating benchmark corpus...</option>
+            </select>
+          </div>
+          <button id="btn-load-sample" class="cyber-btn cyber-btn-cyan">
+            <span class="btn-glow"></span>
+            LOAD SIGNAL TELEMETRY
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 2: Video Dropzone -->
+      <div class="tab-panel" id="panel-upload">
+        <div class="cyber-dropzone" id="dropzone">
+          <div class="dropzone-reticle">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="17 8 12 3 7 8"></polyline>
               <line x1="12" y1="3" x2="12" y2="15"></line>
             </svg>
           </div>
-          <p class="dropzone-title">Drag & drop your lecture video here</p>
-          <p class="dropzone-subtitle">Supports MP4, MOV, WEBM (first 60 seconds analyzed for demo)</p>
+          <h3 class="dropzone-prompt">DROP LECTURE VIDEO TO BEGIN SPECTRAL SCAN</h3>
+          <p class="dropzone-meta">Supports MP4, MOV, WEBM container formats | Local hardware accelerated analysis</p>
           <input type="file" id="file-input" accept="video/mp4,video/quicktime,video/webm" style="display: none;">
-          <button id="btn-browse" class="btn btn-secondary">Browse Local File</button>
-          <span id="selected-file-name" class="file-name-tag"></span>
-        </div>
-        <div class="analyze-action-row">
-          <label class="duration-label">
-            Sample Duration:
-            <select id="upload-duration" class="select-dropdown-sm">
-              <option value="60" selected>First 60s (Fast)</option>
-              <option value="120">First 2 mins</option>
-              <option value="300">First 5 mins</option>
-            </select>
-          </label>
-          <button id="btn-run-upload" class="btn btn-primary" disabled>Analyze Uploaded Video</button>
-        </div>
-      </div>
-
-      <!-- Panel: URL -->
-      <div class="tab-content" id="panel-url">
-        <div class="url-input-row">
-          <div class="url-field-wrapper">
-            <svg class="url-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-            <input type="url" id="url-input" class="text-input" placeholder="https://www.youtube.com/watch?v=... or direct MP4 link">
+          <div class="dropzone-action-bar">
+            <button id="btn-browse" class="cyber-btn cyber-btn-ghost">SELECT LOCAL FILE</button>
+            <span id="selected-file-name" class="active-file-tag"></span>
           </div>
-          <label class="duration-label">
-            Duration:
-            <select id="url-duration" class="select-dropdown-sm">
-              <option value="60" selected>First 60s (Fast)</option>
-              <option value="120">First 2 mins</option>
-              <option value="300">First 5 mins</option>
+        </div>
+        <div class="dropzone-options-bar">
+          <div class="param-group">
+            <label for="upload-duration" class="param-label">SAMPLE CADENCE:</label>
+            <select id="upload-duration" class="cyber-select-sm">
+              <option value="60" selected>First 60s [Fast Preview]</option>
+              <option value="180">First 3 min [Standard]</option>
+              <option value="300">First 5 min [Deep Scan]</option>
             </select>
-          </label>
-          <button id="btn-run-url" class="btn btn-primary">Download & Analyze</button>
+          </div>
+          <button id="btn-run-upload" class="cyber-btn cyber-btn-magenta" disabled>
+            START COGNITIVE SCAN
+          </button>
         </div>
       </div>
 
-      <!-- Loading / Progress bar -->
-      <div id="progress-container" class="progress-container hidden">
-        <div class="progress-spinner"></div>
-        <div class="progress-details">
-          <p id="progress-status-text" class="progress-status">Running live multi-modal analysis...</p>
-          <div class="progress-bar-bg">
-            <div id="progress-bar" class="progress-bar-fill"></div>
+      <!-- Tab 3: URL Analyzer -->
+      <div class="tab-panel" id="panel-url">
+        <div class="url-input-console">
+          <div class="cyber-input-wrapper">
+            <span class="input-prefix">HTTP://</span>
+            <input type="url" id="url-input" class="cyber-text-input" placeholder="Enter lecture URL (YouTube / Coursera / direct MP4)...">
+          </div>
+          <div class="param-group">
+            <label for="url-duration" class="param-label">DURATION:</label>
+            <select id="url-duration" class="cyber-select-sm">
+              <option value="60" selected>First 60s [Fast Preview]</option>
+              <option value="180">First 3 min [Standard]</option>
+              <option value="300">First 5 min [Deep Scan]</option>
+            </select>
+          </div>
+          <button id="btn-run-url" class="cyber-btn cyber-btn-cyan">
+            STREAM &amp; ANALYZE
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-Time Processing Radar Indicator -->
+      <div id="progress-container" class="scanning-indicator hidden">
+        <div class="radar-box">
+          <div class="radar-sweep"></div>
+          <div class="radar-crosshair"></div>
+        </div>
+        <div class="scanning-meta">
+          <div class="scanning-status-row">
+            <span id="progress-status-text" class="scanning-status-text">ACQUIRING SIGNAL CHANNELS...</span>
+            <span class="scanning-rate">60 FPS // BUFFERING</span>
+          </div>
+          <div class="cyber-progress-track">
+            <div id="progress-bar" class="cyber-progress-bar"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Main Content Workspace: Video Player + Violations Sidebar -->
-    <main class="workspace">
-      <!-- Left Column: Video Player & Timeline -->
-      <section class="video-container">
-        <div class="panel-header">
-          <h2 class="panel-title">Video Playback</h2>
-          <span id="current-video-title" class="active-item-title">No video loaded</span>
+    <!-- Lab Workbench: Oscilloscope Player & Signal Alert Matrix -->
+    <main class="lab-workbench">
+      
+      <!-- Left: Signal Oscilloscope & Video Console -->
+      <section class="console-chassis">
+        <div class="chassis-bezel-top">
+          <div class="bezel-left">
+            <span class="recording-badge"><span class="rec-dot"></span> FEED_ACTIVE</span>
+            <span id="current-video-title" class="feed-filename">NO_SOURCE_MOUNTED</span>
+          </div>
+          <div class="bezel-right">
+            <span class="hud-metric">SYNC: <strong class="text-cyan">0.0ms</strong></span>
+            <span class="hud-metric">RES: <strong class="text-white">HD_1080P</strong></span>
+          </div>
         </div>
 
-        <div class="player-wrapper">
+        <div class="video-monitor-screen">
           <video id="video-player" controls preload="metadata">
-            <p>Your browser does not support HTML5 video.</p>
+            <p>HTML5 Video unsupported on this device.</p>
           </video>
         </div>
 
-        <!-- Custom Violation Timeline Visualization -->
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <span class="timeline-title">Cognitive Load Timeline</span>
-            <span class="timeline-legend">
-              <span class="legend-dot dot-violation"></span> Potential Redundancy Flag
-            </span>
-          </div>
-          <div class="timeline-track-wrapper" id="timeline-track-wrapper">
-            <div class="timeline-track" id="timeline-track">
-              <!-- Violation markers dynamically injected -->
+        <!-- Dual Synchronized Signal Timeline -->
+        <div class="oscilloscope-timeline-deck">
+          <div class="deck-header">
+            <div class="deck-title-group">
+              <span class="deck-title">SYNCHRONIZED ATTENTION TIMELINE</span>
+              <span class="deck-subtitle">Audio Amplitude vs Dual Cognitive Load Markers</span>
             </div>
-            <div class="timeline-playhead" id="timeline-playhead"></div>
+            <div class="deck-legend">
+              <span class="legend-item"><span class="legend-box marker-red"></span> Redundancy Violation</span>
+              <span class="legend-item"><span class="legend-box marker-sig"></span> Signaling Shift</span>
+            </div>
           </div>
-          <div class="timeline-time-labels">
-            <span id="timeline-current-time">00:00</span>
-            <span id="timeline-total-time">00:00</span>
+
+          <!-- Track 1: Audio Waveform Activity Strip -->
+          <div class="timeline-strip-label">CH 1: AUDITORY DENSITY WAVEFORM</div>
+          <div class="waveform-strip" id="waveform-strip">
+            <canvas id="audio-waveform-canvas" class="waveform-canvas"></canvas>
+          </div>
+
+          <!-- Track 2: Cognitive Violation Timeline Strip -->
+          <div class="timeline-strip-label">CH 2: COGNITIVE VIOLATIONS &amp; STATIC INTERVALS</div>
+          <div class="violation-strip-container" id="timeline-track-wrapper">
+            <div class="violation-track-bg"></div>
+            <div class="violation-markers-track" id="timeline-track">
+              <!-- Violation ticks dynamically injected -->
+            </div>
+            <div class="laser-playhead" id="timeline-playhead">
+              <div class="laser-line"></div>
+              <div class="laser-tag" id="laser-tag">00:00</div>
+            </div>
+          </div>
+
+          <div class="timeline-time-display">
+            <span id="timeline-current-time" class="time-digit">00:00</span>
+            <span class="time-divider">/</span>
+            <span id="timeline-total-time" class="time-digit">00:00</span>
           </div>
         </div>
       </section>
 
-      <!-- Right Column: Violations Feed -->
-      <aside class="violations-container">
-        <div class="panel-header">
-          <div class="panel-header-left">
-            <h2 class="panel-title">Detected Violations</h2>
-            <span id="violation-count-badge" class="count-badge">0 Found</span>
+      <!-- Right: Signal Alert Matrix & Telemetry Cards -->
+      <aside class="alerts-deck">
+        <div class="alerts-deck-header">
+          <div>
+            <h2 class="alerts-title">SIGNAL ANOMALY MATRIX</h2>
+            <p class="alerts-sub">Flagged Attention Violations (Click to Seek)</p>
           </div>
-          <div class="filter-controls">
-            <span class="filter-label">Click card to seek video</span>
+          <div class="counter-cluster">
+            <span id="violation-count-badge" class="count-digit-badge">0 FLAGS</span>
           </div>
         </div>
 
-        <!-- Scrollable violations list -->
-        <div id="violations-list" class="violations-list">
-          <div class="empty-state">
-            <div class="empty-icon">
+        <!-- Benchmark Scientific Telemetry HUD -->
+        <div class="metrics-hud-card">
+          <div class="hud-item">
+            <span class="hud-label">EVAL PRECISION</span>
+            <span class="hud-value text-cyan">50.0%</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">EVAL RECALL</span>
+            <span class="hud-value text-magenta">42.1%</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">BENCHMARK F1</span>
+            <span class="hud-value text-amber">0.4571</span>
+          </div>
+        </div>
+
+        <!-- Scrollable Violation Cards Stream -->
+        <div id="violations-list" class="violations-feed">
+          <div class="standby-screen">
+            <div class="standby-radar">
+              <div class="ping-circle"></div>
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                <path d="M12 6v6l4 2"></path>
               </svg>
             </div>
-            <p class="empty-title">No Video Loaded</p>
-            <p class="empty-subtitle">Choose a pre-analyzed sample above, or drop your own video to detect redundant narration.</p>
+            <p class="standby-title">SYSTEM ON STANDBY</p>
+            <p class="standby-desc">Mount a lecture from the benchmark corpus or drop a video to analyze dual-channel cognitive load.</p>
           </div>
         </div>
       </aside>
     </main>
 
-    <!-- Footer -->
-    <footer class="app-footer">
-      <p>Built with Faster-Whisper ASR, Tesseract Slide OCR, and Sentence-Transformers | Adheres to Mayer's Cognitive Multimedia Principles</p>
+    <!-- Lab Terminal Footer -->
+    <footer class="lab-footer">
+      <div class="footer-left">
+        <span class="terminal-symbol">&gt;_</span>
+        <span>Mayer's Cognitive Multimedia Principles Linter | Real-Time ASR &amp; Optical Character Verification</span>
+      </div>
+      <div class="footer-right">
+        <span>ENCODER: <strong class="text-white">sentence-transformers/paraphrase-MiniLM-L3-v2</strong></span>
+      </div>
     </footer>
   </div>
 
